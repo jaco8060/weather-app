@@ -8,7 +8,8 @@
     "start": "webpack serve --open",
     "build": "webpack",
     "upload": "git subtree push --prefix dist origin gh-pages",
-    "updatelive": "git subtree push --prefix dist origin gh-pages"
+    "updatelive": "git subtree push --prefix dist origin gh-pages",
+    "lint": "eslint --ext .js,.ts"
   },
   "keywords": [],
   "author": "",
