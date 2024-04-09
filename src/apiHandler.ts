@@ -1,15 +1,13 @@
-async function retrieveWeatherData() {
-  const cityName = "312372189371237"; // Example city name, likely to cause an error
-
+async function retrieveWeatherData(locationName: string) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=d0d34e3ac0624eecb36215539240804&q=${cityName}`,
+      `http://api.weatherapi.com/v1/current.json?key=d0d34e3ac0624eecb36215539240804&q=${locationName}`,
       { mode: "cors" }
     );
 
     if (!response.ok) {
       // Check if the response status is not OK (200-299)
-      const errorData = await response.json(); // Assuming the API sends JSON-formatted error messages
+      const errorData = await response.json();
       throw new Error(`Error ${response.status}: ${errorData.error.message}`);
     }
 
