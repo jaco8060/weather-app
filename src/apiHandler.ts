@@ -1,4 +1,5 @@
 import { LocationWeather } from "./location";
+
 async function retrieveWeatherData(locationName: string) {
   try {
     const response = await fetch(
@@ -7,15 +8,16 @@ async function retrieveWeatherData(locationName: string) {
     );
 
     if (!response.ok) {
-      // Check if the response status is not OK (200-299)
       const errorData = await response.json();
-      throw new Error(`Error ${response.status}: ${errorData.error.message}`);
+      // Return an object with status and error message
+      return {
+        status: response.status,
+        error: `Error ${response.status}: ${errorData.error.message}`,
+      };
     }
 
-    // If the response is ok, parse and log the JSON data
     const responseData = await response.json();
 
-    //create new location weather object
     const weatherLocation = new LocationWeather(
       responseData.location.country,
       responseData.location.localtime,
@@ -27,10 +29,19 @@ async function retrieveWeatherData(locationName: string) {
       responseData.current.feelslike_f,
       responseData.current.is_day
     );
-    return { weatherLocation };
+
+    // If successful, return the weather location with a 200 status code
+    return {
+      status: 200,
+      weatherLocation,
+    };
   } catch (error) {
-    // Log custom error message or process further as needed
+    // Handle unexpected errors, returning a status code with the error
     console.log(`Failed to retrieve weather data: ${error.message}`);
+    return {
+      status: 500, // Internal Server Error or appropriate status based on the context
+      error: `Failed to retrieve weather data: ${error.message}`,
+    };
   }
 }
 
