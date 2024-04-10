@@ -26,8 +26,8 @@ async function displayWeatherData(locationName: string) {
       <p class="local-time">${result.weatherLocation.localtime}</p>
       <p class="city">${result.weatherLocation.city}</p>
       <p class="province">${result.weatherLocation.province}</p>
-      <p class="feelsLikeC">${result.weatherLocation.feelsLikeC}</p>
-      <p class="feelsLikeF">${result.weatherLocation.feelsLikeF}</p>
+      <p class="feelsLikeC">${result.weatherLocation.feelsLikeC}°C</p>
+      <p class="feelsLikeF">${result.weatherLocation.feelsLikeF}°F</p>
     `;
   }
 }
