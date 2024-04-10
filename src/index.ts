@@ -10,14 +10,11 @@ async function displayWeatherData(locationName: string) {
   if (result.error) {
     console.error(`An error occurred: ${result.error}`);
     // Display error message to the user
-    if (weatherStatus) {
-      alert(`Error fetching weather data: ${result.error}`);
-    }
+
+    alert(`Error fetching weather data: ${result.error}`);
   } else {
     resetContainer();
     console.log("Weather data:", result.weatherLocation);
-    // Display weather data to the user
-    weatherStatus.textContent = `Weather in ${result.weatherLocation.city}: ${result.weatherLocation.conditionText}`;
 
     weatherContainer.innerHTML = `
     <div class="display-group1">
@@ -34,28 +31,42 @@ async function displayWeatherData(locationName: string) {
         <p class="local-time">${result.weatherLocation.localtime}</p>
     </div>
     `;
+
+    if (result.weatherLocation.isDay) {
+      displayDay();
+    } else if (!result.weatherLocation.isDay) {
+      displayNight();
+    }
   }
 }
 
+function displayDay() {
+  document.body.style.backgroundColor = "var(--primary-bg-color-day)";
+  document.body.style.color = "var(--primary-font-color-day)";
+}
+function displayNight() {
+  document.body.style.backgroundColor = "var(--primary-bg-color-night)";
+  document.body.style.color = "var(--primary-font-color-night)";
+}
 function resetContainer() {
   const weatherContainer = document.querySelector(".weather-container");
 
   weatherContainer.innerHTML = `
      <div class="display-group1">
-        <img id="status-icon" src="#" alt="display status icon" />
         <p id="weather-status"></p>
       </div>
-      <div class="display-group2">
-        <p class="feelsLikeC"></p>
-        <p class="feelsLikeF"></p>
-      </div>
-      <div class="display-group3">
-        <p class="country"></p>
-        <p class="cityProvince"></p>
-        <p class="local-time"></p>
 
-      </div>
   `;
 }
 
-displayWeatherData("Kitchener");
+const inputLocationForm = document.querySelector("#locationInputForm");
+
+inputLocationForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const inputLocation = document.querySelector(
+    ".locationInput"
+  ) as HTMLInputElement;
+  console.log(inputLocation.value);
+  displayWeatherData(inputLocation.value);
+});
