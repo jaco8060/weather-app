@@ -6,7 +6,7 @@ async function retrieveWeatherData(locationName: string) {
       `https://api.weatherapi.com/v1/current.json?key=d0d34e3ac0624eecb36215539240804&q=${locationName}`,
       { mode: "cors" }
     );
-
+    // changed to https for security
     if (!response.ok) {
       const errorData = await response.json();
       // Return an object with status and error message
