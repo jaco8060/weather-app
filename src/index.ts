@@ -1,6 +1,6 @@
 import { retrieveWeatherData } from "./apiHandler";
 
-async function displayWeatherData(locationName) {
+async function displayWeatherData(locationName: string) {
   const result = await retrieveWeatherData(locationName);
 
   if (result.error) {
