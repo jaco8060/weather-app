@@ -39,7 +39,7 @@ async function retrieveWeatherData(locationName: string) {
     // Handle unexpected errors, returning a status code with the error
     console.log(`Failed to retrieve weather data: ${error.message}`);
     return {
-      status: 500, // Internal Server Error or appropriate status based on the context
+      status: 400, // Internal Server Error or appropriate status based on the context
       error: `Failed to retrieve weather data: ${error.message}`,
     };
   }
