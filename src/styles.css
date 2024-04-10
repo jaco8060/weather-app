@@ -148,9 +148,81 @@ body {
   font-style: normal;
   background-color: var(--primary-bg-color);
   color: var(--primary-font-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .title {
   font-size: var(--title-font-size);
   font-weight: 600;
+  padding: 1rem 0 0 0;
+}
+
+.weather-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.display-group1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#status-icon {
+  width: 4rem;
+}
+
+#weather-status {
+  font-size: 1rem;
+}
+
+.display-group2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feelsLikeC {
+  font-size: 4rem;
+}
+
+.feelsLikeF {
+  font-size: 1.5rem;
+}
+
+.display-group3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cityProvince {
+  font-size: 2rem;
+}
+
+.locationInput {
+  padding: 10px 15px; /* Comfortable padding around the text */
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  font-size: 2rem; /* Readable text size */
+  width: 80%; /* Full-width to fit container */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  margin-bottom: 10px; /* Space below the element */
+}
+
+.locationInput::placeholder {
+  color: #aaa; /* Lighter text color for placeholder */
+}
+
+.locationInput:focus {
+  border-color: #007bff; /* Highlighted border color on focus */
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5); /* More prominent shadow on focus */
 }

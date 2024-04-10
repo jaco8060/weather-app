@@ -1,4 +1,5 @@
 class LocationWeather {
+  public isDay: boolean; // Declare the boolean property outside the constructor
   constructor(
     public country: string,
     public localtime: string,
@@ -12,7 +13,5 @@ class LocationWeather {
   ) {
     this.isDay = isDayNumber === 1; // Convert to boolean and assign to public property
   }
-
-  public isDay: boolean; // Declare the boolean property outside the constructor
 }
 export { LocationWeather };

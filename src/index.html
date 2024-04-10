@@ -11,14 +11,26 @@
   <body>
     <h1 class="title">Weather App</h1>
     <div class="weather-container">
-      <img id="status-icon" src="#" alt="display status icon" />
-      <p id="weather-status"></p>
-      <p class="country"></p>
-      <p class="local-time"></p>
-      <p class="city"></p>
-      <p class="province"></p>
-      <p class="feelsLikeC"></p>
-      <p class="feelsLikeF"></p>
+      <div class="display-group1">
+        <div class="status-icon-container">
+          <img id="status-icon" src="#" alt="display status icon" />
+        </div>
+        <p id="weather-status"></p>
+      </div>
+      <div class="display-group2">
+        <p class="feelsLikeC"></p>
+        <p class="feelsLikeF"></p>
+      </div>
+      <div class="display-group3">
+        <p class="country"></p>
+        <p class="cityProvince"></p>
+        <p class="local-time"></p>
+      </div>
     </div>
+    <input
+      type="text"
+      class="locationInput"
+      placeholder="Enter a city or zip code"
+    />
   </body>
 </html>
