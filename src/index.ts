@@ -60,8 +60,12 @@ function resetContainer() {
 }
 
 const inputLocationForm = document.querySelector("#locationInputForm");
+const searchBtn = document.querySelector(".searchBtn");
 
-inputLocationForm.addEventListener("submit", (e) => {
+searchBtn.addEventListener("click", searchLocation);
+inputLocationForm.addEventListener("submit", searchLocation);
+
+function searchLocation(e: any) {
   e.preventDefault();
 
   const inputLocation = document.querySelector(
@@ -69,4 +73,4 @@ inputLocationForm.addEventListener("submit", (e) => {
   ) as HTMLInputElement;
   console.log(inputLocation.value);
   displayWeatherData(inputLocation.value);
-});
+}
