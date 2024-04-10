@@ -3,7 +3,7 @@ import { LocationWeather } from "./location";
 async function retrieveWeatherData(locationName: string) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=d0d34e3ac0624eecb36215539240804&q=${locationName}`,
+      `https://api.weatherapi.com/v1/current.json?key=d0d34e3ac0624eecb36215539240804&q=${locationName}`,
       { mode: "cors" }
     );
 
