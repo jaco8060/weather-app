@@ -1,3 +1,4 @@
+import { LocationWeather } from "./location";
 async function retrieveWeatherData(locationName: string) {
   try {
     const response = await fetch(
@@ -13,7 +14,20 @@ async function retrieveWeatherData(locationName: string) {
 
     // If the response is ok, parse and log the JSON data
     const responseData = await response.json();
-    console.log(responseData);
+
+    //create new location weather object
+    const weatherLocation = new LocationWeather(
+      responseData.location.country,
+      responseData.location.localtime,
+      responseData.location.name,
+      responseData.location.region,
+      responseData.current.condition.text,
+      responseData.current.condition.icon,
+      responseData.current.feelslike_c,
+      responseData.current.feelslike_f,
+      responseData.current.is_day
+    );
+    return { weatherLocation };
   } catch (error) {
     // Log custom error message or process further as needed
     console.log(`Failed to retrieve weather data: ${error.message}`);

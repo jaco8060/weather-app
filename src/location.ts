@@ -15,3 +15,4 @@ class LocationWeather {
 
   public isDay: boolean; // Declare the boolean property outside the constructor
 }
+export { LocationWeather };
